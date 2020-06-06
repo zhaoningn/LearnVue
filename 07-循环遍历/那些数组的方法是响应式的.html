@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="name in names">{{name}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    //let(变量) const(常量)
+    //编程范式：声明式编程
+    const app = new Vue({
+        el: '#app',//用于挂载要管理的元素
+        data: {  //定义数据
+            names: ['zxq', 'znn', 'lihaile']
+        },
+        methods: {
+
+            btnClick() {
+                //1.push方法,在末尾添加元素，可以一次性添加多个
+                // this.names.push('aaa');
+
+                // 2.pop方法，在末尾删除元素
+                // this.names.pop();
+
+                //3.shift方法，在头部删除元素
+                // this.names.shift();
+
+                //4.unshift方法，在数组最前面添加元素，可以一次性添加多个
+                // this.names.unshift('bbb');
+
+                //作用，删除元素、插入元素、替换元素
+                //第一个参数（start），操作元素的位置
+                //删除元素：第二个参数传入你要删除几个元素，如果没有，就从第一个参数的位置开始，到最后都删除
+                //替换元素：相当于先执行删除操作，然后将后面的参数插入到第一个参数的位置，依次排列
+                //插入元素：相当于删除0个元素，然后在插入到第一个参数的位置
+                // this.names.splice(0, 0, 'a', 'b');
+
+                //排序
+                // this.names.sort();
+                //反转
+                // this.names.reverse();
+                //(要修改的对象，索引值，修改后的值)
+                Vue.set(this.names,0,'bbb');
+
+                //注意：通过索引值修改数组中的元素，Vue没有监听
+                // this.names[0] = 'vvv';
+            }
+
+        }
+    })
+</script>
+</body>
+</html>

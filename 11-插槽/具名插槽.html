@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn>
+        <button slot="center">你好</button>
+    </cpn>
+    <cpn>
+        <button slot="right">你才好</button>
+    </cpn>
+    <cpn>
+        <button>替换的是没有slot属性的</button>
+    </cpn>
+</div>
+
+<template id="cpn">
+    <div>
+        <slot name="left">左边</slot>
+        <slot name="center">中间</slot>
+        <slot name="right">右边</slot>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好'
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

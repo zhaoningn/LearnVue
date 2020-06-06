@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!--    1.在遍历对象的过程中，只有一个参数，则这个参数为value-->
+    <ul>
+        <li v-for="info in infos">{{info}}</li>
+    </ul>
+    <!--    2.在遍历对象的过程中，有两个参数，则前面的是value，后面的是key-->
+    <ul>
+        <li v-for="(value,key) in infos">{{key}}--{{value}}</li>
+    </ul>
+<!--    3.获取key，value，index格式：（value,key,index）-->
+    <ul>
+        <li v-for="(value,key,index) in infos">{{key}}--{{value}}--{{index}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    //let(变量) const(常量)
+    //编程范式：声明式编程
+    const app = new Vue({
+        el:'#app',//用于挂载要管理的元素
+        data:{  //定义数据
+            infos:{
+                name:'zhaoning',
+                age:18,
+                height:1.83
+            }
+        }
+    })
+</script>
+</body>
+</html>
